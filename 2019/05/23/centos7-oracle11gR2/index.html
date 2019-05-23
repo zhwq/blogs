@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="centos7下安装oracle 11g">
+  <meta name="description" content="centos7下安装oracle 11g yum源本地源 挂载iso镜像  123mkdir -p /mnt/cdrom /mnt/isomv CentOS-7-x86_64-DVD-1810.iso /mnt/isomount -t iso9660 -o loop /mnt/iso/CentOS-7-x86_64-DVD-1810.iso /mnt/cdrom  开机自动挂载  1/mnt/is">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7-oracle11gR2">
 <meta property="og:url" content="https://zhwq.github.io/blogs/2019/05/23/centos7-oracle11gR2/index.html">
 <meta property="og:site_name" content="轨迹">
-<meta property="og:description" content="centos7下安装oracle 11g">
+<meta property="og:description" content="centos7下安装oracle 11g yum源本地源 挂载iso镜像  123mkdir -p /mnt/cdrom /mnt/isomv CentOS-7-x86_64-DVD-1810.iso /mnt/isomount -t iso9660 -o loop /mnt/iso/CentOS-7-x86_64-DVD-1810.iso /mnt/cdrom  开机自动挂载  1/mnt/is">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-23T03:05:48.000Z">
+<meta property="og:updated_time" content="2019-05-23T05:57:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7-oracle11gR2">
-<meta name="twitter:description" content="centos7下安装oracle 11g">
+<meta name="twitter:description" content="centos7下安装oracle 11g yum源本地源 挂载iso镜像  123mkdir -p /mnt/cdrom /mnt/isomv CentOS-7-x86_64-DVD-1810.iso /mnt/isomount -t iso9660 -o loop /mnt/iso/CentOS-7-x86_64-DVD-1810.iso /mnt/cdrom  开机自动挂载  1/mnt/is">
 
 
 
@@ -336,7 +336,7 @@
                 
               
 
-              <time title="创建时间：2019-05-23 11:02:02 / 修改时间：11:05:48" itemprop="dateCreated datePublished" datetime="2019-05-23T11:02:02+08:00">2019-05-23</time>
+              <time title="创建时间：2019-05-23 11:02:02 / 修改时间：13:57:18" itemprop="dateCreated datePublished" datetime="2019-05-23T11:02:02+08:00">2019-05-23</time>
             
 
             
@@ -376,7 +376,19 @@
 
       
         <p>centos7下安装oracle 11g</p>
-
+<h2 id="yum源"><a href="#yum源" class="headerlink" title="yum源"></a>yum源</h2><h3 id="本地源"><a href="#本地源" class="headerlink" title="本地源"></a>本地源</h3><ul>
+<li>挂载iso镜像</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /mnt/cdrom /mnt/iso</span><br><span class="line">mv CentOS-7-x86_64-DVD-1810.iso /mnt/iso</span><br><span class="line">mount -t iso9660 -o loop /mnt/iso/CentOS-7-x86_64-DVD-1810.iso /mnt/cdrom</span><br></pre></td></tr></table></figure>
+<ul>
+<li>开机自动挂载</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/mnt/iso/CentOS-7-x86_64-DVD-1810.iso /mnt/cdrom iso9660 defaults,ro,loop 0 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>/etc/yum.repos.d/iso.repo</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[rhel-media]</span><br><span class="line">name=Red Hat Enterprise Linux 7.1810</span><br><span class="line">baseurl=file:///mnt/cdrom</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///mnt/cdrom/RPM-GPG-KEY-CentOS-7</span><br></pre></td></tr></table></figure>
+<h3 id="epel"><a href="#epel" class="headerlink" title="epel"></a>epel</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -458,8 +470,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -505,6 +526,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#yum源"><span class="nav-number">1.</span> <span class="nav-text">yum源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地源"><span class="nav-number">1.1.</span> <span class="nav-text">本地源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#epel"><span class="nav-number">1.2.</span> <span class="nav-text">epel</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
