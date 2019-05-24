@@ -335,7 +335,7 @@
                 
               
 
-              <time title="创建时间：2019-05-24 17:19:26 / 修改时间：17:25:55" itemprop="dateCreated datePublished" datetime="2019-05-24T17:19:26+08:00">2019-05-24</time>
+              <time title="创建时间：2019-05-24 17:19:26 / 修改时间：17:27:29" itemprop="dateCreated datePublished" datetime="2019-05-24T17:19:26+08:00">2019-05-24</time>
             
 
             
@@ -376,7 +376,7 @@
       
         
           
-            <h2 id="问题清单"><a href="#问题清单" class="headerlink" title="问题清单"></a>问题清单</h2><p>Q1:</p>
+            <h2 id="问题清单"><a href="#问题清单" class="headerlink" title="问题清单"></a>问题清单</h2><h3 id="dyld-Library-not-loaded-executable-path-Python"><a href="#dyld-Library-not-loaded-executable-path-Python" class="headerlink" title="dyld: Library not loaded: @executable_path/../.Python"></a><code>dyld: Library not loaded: @executable_path/../.Python</code></h3><p>Q1:</p>
 <p>brew升级后导致venv环境的链接失败, 删除重新链接就可以了.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(venv) ➜  python-course python -V</span><br><span class="line">dyld: Library <span class="keyword">not</span> loaded: @executable_path/../.Python</span><br><span class="line">  Referenced <span class="keyword">from</span>: ~/python-course/venv/bin/python</span><br><span class="line">  Reason: image <span class="keyword">not</span> found</span><br><span class="line">[<span class="number">1</span>]    <span class="number">11770</span> abort      python -V</span><br></pre></td></tr></table></figure>
 <p>A1:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install findutils</span><br><span class="line">gfind ./venv -<span class="built_in">type</span> l -xtype l -delete</span><br><span class="line">virtualenv venv</span><br></pre></td></tr></table></figure></p>
